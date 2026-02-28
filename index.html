@@ -67,6 +67,28 @@
       </form>
     </section>
 
+    <!-- Disqus Comments Section -->
+    <section class="container disqus-section">
+      <header class="hero">
+        <h2>자유 <span class="highlight">게시판</span></h2>
+        <p>함께 의견을 나누어보세요</p>
+      </header>
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          this.page.url = window.location.href;  
+          this.page.identifier = 'lotto-generator-main'; 
+        };
+        (function() { 
+          var d = document, s = d.createElement('script');
+          s.src = 'https://jnj-lotto.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+
     <footer class="footer">
       <p>&copy; 2026 Premium Lotto Lab. All rights reserved.</p>
     </footer>

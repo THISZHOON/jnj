@@ -281,6 +281,15 @@ body.light-mode .moon-icon { opacity: 1; transform: rotate(0); }
   transform: translateY(1px);
 }
 
+/* Disqus */
+.disqus-section {
+  text-align: left;
+}
+
+#disqus_thread {
+  margin-top: 20px;
+}
+
 .footer {
   text-align: center;
   font-size: 0.8rem;
