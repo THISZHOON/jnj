@@ -3,12 +3,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const ballDisplay = document.getElementById('ball-display');
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
+// Theme Logic
+const savedTheme = localStorage.getItem('theme') || 'dark-mode';
+body.className = savedTheme;
 
-  // Theme Logic
-  const savedTheme = localStorage.getItem('theme') || 'dark-mode';
-  body.className = savedTheme;
+// Initialize Cusdis Theme on load
+window.addEventListener('load', () => {
+  if (window.CUSDIS) {
+    window.CUSDIS.setTheme(savedTheme === 'dark-mode' ? 'dark' : 'light');
+  }
+});
 
-  themeToggle.addEventListener('click', () => {
+themeToggle.addEventListener('click', () => {
+...
     let newTheme;
     if (body.classList.contains('dark-mode')) {
       newTheme = 'light-mode';
