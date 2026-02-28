@@ -67,52 +67,31 @@
       </form>
     </section>
 
-    <!-- Premium Custom Comment Section (LGE Style) -->
-    <section class="container comment-section">
+    <!-- Disqus Comments Section -->
+    <section class="container disqus-section">
       <header class="hero">
         <h2>자유 <span class="highlight">게시판</span></h2>
-        <p>여러분의 소중한 의견을 남겨주세요</p>
+        <p>함께 의견을 나누어보세요</p>
       </header>
-      
-      <div class="custom-comment-form">
-        <form action="https://formspree.io/f/maqdzwby" method="POST" id="comment-form">
-          <input type="hidden" name="_subject" value="새로운 자유게시판 댓글 알림">
-          
-          <div class="form-row">
-            <div class="input-group">
-              <label for="comment-nickname">닉네임</label>
-              <input type="text" id="comment-nickname" name="nickname" placeholder="닉네임을 입력하세요" required>
-            </div>
-            <div class="input-group">
-              <label for="comment-email">이메일 (선택)</label>
-              <input type="email" id="comment-email" name="email" placeholder="example@mail.com">
-            </div>
-          </div>
-          
-          <div class="input-group">
-            <label for="comment-content">내용</label>
-            <textarea id="comment-content" name="content" rows="5" placeholder="타인을 비방하거나 부적절한 내용은 삭제될 수 있습니다." required></textarea>
-          </div>
-          
-          <div class="form-footer">
-            <button type="submit" class="btn submit-comment-btn">
-              <span>등록하기</span>
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Real-time simple feedback (Simulated list) -->
-      <div id="comment-list" class="comment-list">
-        <!-- Comments will appear here (Simulated for UI) -->
-        <div class="comment-item">
-          <div class="comment-info">
-            <span class="comment-author">운영자</span>
-            <span class="comment-date">2026.02.28</span>
-          </div>
-          <div class="comment-text">자유롭게 의견을 나누는 공간입니다. 클린한 커뮤니티를 만들어주세요!</div>
-        </div>
-      </div>
+      <div id="disqus_thread"></div>
+      <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://thisz.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
 
     <footer class="footer">
