@@ -7,23 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const savedTheme = localStorage.getItem('theme') || 'dark-mode';
 body.className = savedTheme;
 
-// Initialize & Sync Theme for Cusdis
-const syncCusdisTheme = (theme) => {
-  const cusdisTheme = theme === 'dark-mode' ? 'dark' : 'light';
-  const iframe = document.querySelector('#cusdis_thread iframe');
-
-  if (window.CUSDIS) {
-    window.CUSDIS.setTheme(cusdisTheme);
-  } else if (iframe) {
-    // Fallback: reload iframe with theme if window.CUSDIS is not ready
-    const src = new URL(iframe.src);
-    src.searchParams.set('theme', cusdisTheme);
-    iframe.src = src.href;
-  }
-};
-
-window.addEventListener('load', () => syncCusdisTheme(body.className));
-
 themeToggle.addEventListener('click', () => {
   let newTheme;
   if (body.classList.contains('dark-mode')) {
@@ -34,9 +17,7 @@ themeToggle.addEventListener('click', () => {
     body.classList.replace('light-mode', 'dark-mode');
   }
   localStorage.setItem('theme', newTheme);
-  syncCusdisTheme(newTheme);
-});
-  });
+});  });
 
   // Lotto Logic
   const getBallColorClass = (num) => {
