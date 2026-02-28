@@ -9,12 +9,19 @@ document.addEventListener('DOMContentLoaded', () => {
   body.className = savedTheme;
 
   themeToggle.addEventListener('click', () => {
+    let newTheme;
     if (body.classList.contains('dark-mode')) {
+      newTheme = 'light-mode';
       body.classList.replace('dark-mode', 'light-mode');
-      localStorage.setItem('theme', 'light-mode');
     } else {
+      newTheme = 'dark-mode';
       body.classList.replace('light-mode', 'dark-mode');
-      localStorage.setItem('theme', 'dark-mode');
+    }
+    localStorage.setItem('theme', newTheme);
+    
+    // Sync Cusdis Theme
+    if (window.CUSDIS) {
+      window.CUSDIS.setTheme(newTheme === 'dark-mode' ? 'dark' : 'light');
     }
   });
 

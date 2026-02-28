@@ -281,13 +281,22 @@ body.light-mode .moon-icon { opacity: 1; transform: rotate(0); }
   transform: translateY(1px);
 }
 
-/* Disqus */
-.disqus-section {
+/* Comments Section */
+.comment-section {
   text-align: left;
 }
 
-#disqus_thread {
+#cusdis_thread {
   margin-top: 20px;
+  min-height: 200px;
+  /* Ensure iframe content is visible */
+  background: var(--glass-bg);
+  border-radius: 16px;
+  padding: 10px;
+}
+
+#cusdis_thread iframe {
+  width: 100% !important;
 }
 
 .footer {
