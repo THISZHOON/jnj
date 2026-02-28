@@ -19,27 +19,59 @@
     </button>
   </nav>
 
-  <main class="container">
-    <header class="hero">
-      <h1>LOTTO <span class="highlight">6/45</span></h1>
-      <p>럭키 넘버를 생성해보세요</p>
-    </header>
+  <main class="main-wrapper">
+    <section class="container">
+      <header class="hero">
+        <h1>LOTTO <span class="highlight">6/45</span></h1>
+        <p>럭키 넘버를 생성해보세요</p>
+      </header>
 
-    <div id="ball-display" class="ball-display">
-      <div class="placeholder-text">행운의 번호가 여기에 나타납니다.</div>
-    </div>
+      <div id="ball-display" class="ball-display">
+        <div class="placeholder-text">행운의 번호가 여기에 나타납니다.</div>
+      </div>
 
-    <div class="controls">
-      <button id="generate-btn" class="btn">
-        <span>번호 생성하기</span>
-        <div class="btn-glow"></div>
-      </button>
-    </div>
+      <div class="controls">
+        <button id="generate-btn" class="btn">
+          <span>번호 생성하기</span>
+          <div class="btn-glow"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Partnership Inquiry Section -->
+    <section class="container inquiry-section">
+      <header class="hero">
+        <h2>제휴 <span class="highlight">문의</span></h2>
+        <p>함께 성장할 파트너를 기다립니다</p>
+      </header>
+      
+      <form action="https://formspree.io/f/sample" method="POST" class="inquiry-form">
+        <div class="input-group">
+          <label for="name">이름 / 업체명</label>
+          <input type="text" id="name" name="name" placeholder="성함 또는 상호를 입력하세요" required>
+        </div>
+        
+        <div class="input-group">
+          <label for="email">이메일 주소</label>
+          <input type="email" id="email" name="_replyto" placeholder="연락받으실 이메일을 입력하세요" required>
+        </div>
+        
+        <div class="input-group">
+          <label for="message">문의 내용</label>
+          <textarea id="message" name="message" rows="4" placeholder="문의하실 내용을 상세히 적어주세요" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn secondary-btn">
+          <span>문의 보내기</span>
+        </button>
+      </form>
+    </section>
 
     <footer class="footer">
       <p>&copy; 2026 Premium Lotto Lab. All rights reserved.</p>
     </footer>
   </main>
+  
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
