@@ -1,7 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
   const generateBtn = document.getElementById('generate-btn');
   const ballDisplay = document.getElementById('ball-display');
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
 
+  // Theme Logic
+  const savedTheme = localStorage.getItem('theme') || 'dark-mode';
+  body.className = savedTheme;
+
+  themeToggle.addEventListener('click', () => {
+    if (body.classList.contains('dark-mode')) {
+      body.classList.replace('dark-mode', 'light-mode');
+      localStorage.setItem('theme', 'light-mode');
+    } else {
+      body.classList.replace('light-mode', 'dark-mode');
+      localStorage.setItem('theme', 'dark-mode');
+    }
+  });
+
+  // Lotto Logic
   const getBallColorClass = (num) => {
     if (num <= 10) return 'ball-range-1';
     if (num <= 20) return 'ball-range-2';
@@ -35,27 +52,22 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const renderNumbers = () => {
-    // Disable button during animation
     generateBtn.disabled = true;
     generateBtn.style.opacity = '0.5';
     generateBtn.style.cursor = 'not-allowed';
 
-    // Clear display
     ballDisplay.innerHTML = '';
 
     const { main, bonus } = generateLottoNumbers();
 
-    // Render main numbers
     main.forEach((num, index) => {
       const ball = createBall(num, false, index * 0.15);
       ballDisplay.appendChild(ball);
     });
 
-    // Render bonus number
     const bonusBall = createBall(bonus, true, main.length * 0.15 + 0.2);
     ballDisplay.appendChild(bonusBall);
 
-    // Re-enable button after animations
     setTimeout(() => {
       generateBtn.disabled = false;
       generateBtn.style.opacity = '1';

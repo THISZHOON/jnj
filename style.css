@@ -1,17 +1,29 @@
 :root {
-  --bg-color: #0f172a;
-  --text-color: #f8fafc;
-  --primary-color: #38bdf8;
-  --secondary-color: #818cf8;
-  --accent-color: #fbbf24;
-  --ball-shadow: rgba(0, 0, 0, 0.4);
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
   --ball-y: #facc15;
   --ball-b: #3b82f6;
   --ball-r: #ef4444;
   --ball-g: #a1a1aa;
   --ball-v: #10b981;
+}
+
+body.dark-mode {
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --primary-color: #38bdf8;
+  --secondary-color: #818cf8;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --ball-shadow: rgba(0, 0, 0, 0.4);
+}
+
+body.light-mode {
+  --bg-color: #f1f5f9;
+  --text-color: #1e293b;
+  --primary-color: #0ea5e9;
+  --secondary-color: #6366f1;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(148, 163, 184, 0.2);
+  --ball-shadow: rgba(148, 163, 184, 0.4);
 }
 
 * {
@@ -30,6 +42,7 @@ body {
   align-items: center;
   overflow: hidden;
   position: relative;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .noise {
@@ -44,18 +57,60 @@ body {
   z-index: 1;
 }
 
+/* Navigation & Theme Toggle */
+.top-nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.theme-toggle-btn {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-color);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  background: var(--glass-border);
+}
+
+.sun-icon, .moon-icon {
+  position: absolute;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+body.dark-mode .sun-icon { opacity: 1; transform: rotate(0); }
+body.dark-mode .moon-icon { opacity: 0; transform: rotate(90deg); }
+body.light-mode .sun-icon { opacity: 0; transform: rotate(-90deg); }
+body.light-mode .moon-icon { opacity: 1; transform: rotate(0); }
+
+/* Main Container */
 .container {
   width: 90%;
   max-width: 600px;
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 32px;
   padding: 40px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
   z-index: 2;
   text-align: center;
+  transition: all 0.4s ease;
 }
 
 .hero h1 {
